@@ -22,7 +22,7 @@ jobs:
         with:
           submodules: true
 
-      - name: Generate PDF document
+      - name: Generate PDF documents
         uses: xu-cheng/latex-action@v2
         with:
           root_file: cv_en.tex
