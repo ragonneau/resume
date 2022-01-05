@@ -1,0 +1,42 @@
+# .github/workflows/build.yml
+# GitHub Actions configuration file for latex
+# See https://github.com/xu-cheng/latex-action for details
+
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  run:
+    name: Build LaTeX documents
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Generate PDF document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: cv_en.tex
+          args: -file-line-error -halt-on-error -interaction=nonstopmode
+          extra_fonts: "./fonts/*.ttf"
+          pre_compile: "tlmgr update --self && tlmgr update --all"
+          latexmk_shell_escape: true
+
+      - name: Rename PDF documents
+        run: bash build_tools/github/rename.sh
+
+      - name: Store artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: CVs
+          path: cv_*.pdf
+          if-no-files-found: error
