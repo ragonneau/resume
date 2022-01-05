@@ -206,7 +206,7 @@
 % Header
 
 \RequirePackage{tikz}
-\RequirePackage{fontawesome}
+\RequirePackage{fontawesome5}
 
 \newcommand*{\adcvname}[3]{\def\adcv@firstname{#1}\def\adcv@lastname{#2}\def\adcv@degree{#3}}
 \newcommand*{\adcvtitle}[1]{\def\adcv@title{#1}}
@@ -215,10 +215,10 @@
 \newcommand*{\adcvemail}[3]{\def\adcv@emaillocal{#1}\def\adcv@emaildomainsecond{#2}\def\adcv@emaildomaintop{#3}}
 \newcommand*{\adcvwebsite}[2]{\def\adcv@websiteurl{#1}\def\adcv@websitetext{#2}}
 
-\newcommand*{\envelopeicon}{\textcolor{regulartext}{\faEnvelope}}
-\newcommand*{\houseicon}{\textcolor{regulartext}{\faHome}}
-\newcommand*{\phoneicon}{\textcolor{regulartext}{\faPhone}}
-\newcommand*{\placeicon}{\textcolor{regulartext}{\faMapMarker}}
+\newcommand*{\envelopeicon}{\textcolor{regulartext}{\faIcon{envelope}}}
+\newcommand*{\houseicon}{\textcolor{regulartext}{\faIcon{home}}}
+\newcommand*{\phoneicon}{\textcolor{regulartext}{\faIcon{phone}}}
+\newcommand*{\placeicon}{\textcolor{regulartext}{\faIcon{map-marker-alt}}}
 
 \ifonline
     \def\adcv@address{\placeicon~\adcv@locality,~\adcv@country}
