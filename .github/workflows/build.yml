@@ -25,7 +25,9 @@ jobs:
       - name: Generate PDF documents
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: cv_en.tex
+          root_file: |
+            cv_en.tex
+            cv_fr.tex
           args: -file-line-error -halt-on-error -interaction=nonstopmode
           extra_fonts: "./fonts/*.ttf"
           pre_compile: "tlmgr update --self && tlmgr update --all"

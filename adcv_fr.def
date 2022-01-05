@@ -1,0 +1,17 @@
+\ProvidesFile{adcv_en.def}[Adaptable CV English definitions]
+\def\adcv@basickey{{\'{E}}l{\'{e}}mentaire}
+\def\adcv@cefrkey{Cadre europ{\'{e}}en commun de r{\'{e}}f{\'{e}}rence pour les langues -- Apprendre, Enseigner, {\'{E}}valuer (CEFR)}
+\def\adcv@cvofkey{}
+\def\adcv@fluentkey{Exp{\'{e}}riment{\'{e}}}
+\def\adcv@independentkey{Ind{\'{e}}pendant}
+\def\adcv@interactionkey{Conversation}
+\def\adcv@listeningkey{{\'{E}}couter}
+\def\adcv@mothertonguekey{Langue maternelle}
+\def\adcv@otherkey{Autres langues}
+\def\adcv@pagekey{Page}
+\def\adcv@productionkey{Expression}
+\def\adcv@readingkey{Lire}
+\def\adcv@resumeofkey{}
+\def\adcv@speakingkey{Parler}
+\def\adcv@understandingkey{Comprendre}
+\def\adcv@writingkey{{\'{E}}crire}

@@ -1,0 +1,160 @@
+%%
+%% This is cv_fr.tex.
+%% It consists of a modified version of the Adaptive CV LaTeX template
+%% cv_alessandro_rossini_en.tex of Dr. Alessandro Rossini, available at
+%%     https://github.com/alessandrorossini/adcv
+%%
+%% Copyright 2022 Tom M. Ragonneau.
+%% Copyright 2016-2020 Alessandro Rossini.
+%%
+%% It may be distributed and/or modified under the conditions of the
+%% LaTeX Project Public License, either version 1.3 of this license or
+%% (at your option) any later version. The latest version of this
+%% license is in
+%%     http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status 'maintained'.
+%%
+%% The Current Maintainer of this work is Tom M. Ragonneau.
+%%
+\documentclass[a4paper,extended,fr]{adcv}
+
+\usepackage[french]{babel}
+
+\addbibresource{ragonneau-bib/strings.bib}
+\addbibresource{ragonneau-bib/ragonneau.bib}
+
+\title{CV de Tom M. Ragonneau}
+
+\adcvname{Tom M.}{Ragonneau}{Candidat au Doctorat}
+\adcvtitle{Math{\'{e}}matiques Appliqu{\'{e}}es, The Hong Kong Polytechnic University}
+\adcvaddress{TU834, The Hong Kong Polytechnic University}{Kowloon}{Hong Kong}{Chine}
+\adcvwebsite{https://ragonneau.github.io/}{ragonneau.github.io}
+\adcvemail{tom.ragonneau}{connect.polyu}{hk}
+\adcvphone{(+852) 6995-7651}
+\adcvdate{Janvier 2022}
+
+\begin{document}
+
+    \section{Formation}
+
+    \begin{adcvtabletwo}
+        \adcvrowtwo{\textbf{Ph.D.}, The Hong Kong Polytechnic University, Hong Kong, Chine}{2019--Pr{\'{e}}sent}
+        \ifextended
+            \adcvrowmulti{Financ{\'{e}} par la \href{https://www.ugc.edu.hk/eng/ugc/index.html}{Commission des bourses universitaires} de Hong Kong (\href{https://cerg1.ugc.edu.hk/hkpfs/index.html}{HKPFS}).}
+            \adcvrowmulti{Supervis{\'{e}} par Dr. \href{https://www.zhangzk.net}{Zaikun Zhang} et co-supervis{\'{e}} par Prof. \href{https://www.polyu.edu.hk/ama/staff/xjchen/ChenXJ.htm}{Xiaojun Chen}.}
+            \adcvrowmulti{Sujet de la dissertation : M{\'{e}}thodes et logiciels d'optimisation sans d{\'{e}}riv{\'{e}}e bas{\'{e}}s sur des mod{\`{e}}les.}
+        \fi
+
+        \adcvrowskip
+
+        \adcvrowtwo{\textbf{M.Sc.}, Toulouse INP-ENSEEIHT, Toulouse, France}{2018--2019}
+        \ifextended
+            \adcvrowmulti{Dipl{\^{o}}m{\'{e}} en \href{https://www.enseeiht.fr/fr/formation/masters/performance-in-software-media-and-scientific-computing-psmsc.html}{Performance in Software, Media, and Scientific Computing}.}
+        \fi
+
+        \adcvrowskip
+
+        \adcvrowtwo{\textbf{M.Eng.}, Toulouse INP-ENSEEIHT, Toulouse, France}{2016--2019}
+        \ifextended
+            \adcvrowmulti{Dipl{\^{o}}m{\'{e}} en Calcul de Haute Performance et Big Data.}
+        \fi
+
+        \adcvrowskip
+
+        \adcvrowtwo{\textbf{CPGE}, Lyc{\'{e}}e Carnot, Dijon, France}{2014--2016}
+        \ifextended
+            \adcvrowmulti{Fili{\`{e}}re MPSI/MP, option informatique.}
+        \fi
+    \end{adcvtabletwo}
+
+    \section{Exp{\'{e}}rience professionnelle}
+
+    \begin{adcvtabletwo}
+        \adcvrowtwo{\textbf{Assistant de recherche}, The Hong Kong Polytechnic University, Hong Kong, Chine}{2019}
+        \ifextended
+            \adcvrowmulti{D{\'{e}}veloppement initial de \href{https://www.pdfo.net}{PDFO}, un logiciel Python et MATLAB pour utiliser les solveurs d'optimisation sans d{\'{e}}riv{\'{e}}e du Prof.\ M. J. D. Powell (comprenant UOBYQA, NEWUOA, BOBYQA, LINCOA, et COBYLA).}
+        \fi
+
+        \adcvrowskip
+
+        \adcvrowtwo{\textbf{Ing{\'{e}}nieur stagiaire}, Axians Cloud Builder, Toulouse, France}{2018}
+        \ifextended
+            \adcvrowmulti{Pr{\'{e}}diction de la r{\'{e}}partition de charge d'un cluster de calcul GPFS via des outils de machine learning.}
+        \fi
+    \end{adcvtabletwo}
+
+    \section{Publications}
+
+    \ifextended
+        % \begin{refsection}
+        %     \printbibliography[title={Livres et comptes rendus}, heading=subbibliography]
+        % \end{refsection}
+
+        \begin{refsection}
+            \nocite{Benshila_Etal_2020}
+            \printbibliography[title={Revues scientifiques}, heading=subbibliography]
+        \end{refsection}
+
+        % \begin{refsection}
+        %     \printbibliography[title={Actes de colloques scientifiques}, heading=subbibliography]
+        % \end{refsection}
+
+        % \begin{refsection}
+        %     \printbibliography[title={Rapports techniques}, heading=subbibliography]
+        % \end{refsection}
+
+        % \begin{refsection}
+        %     \printbibliography[title={Journaux et magazines}, heading=subbibliography]
+        % \end{refsection}
+    \else
+        \href{https://scholar.google.com/citations?user=tqxQbU0AAAAJ}{1 publication} dans une revue scientifique.
+    \fi
+
+    \ifextended
+        \section{Conf{\'{e}}rences}
+
+        \begin{adcvpresentations}
+            \adcvpresentation{PDFO: a cross-platform MATLAB/Python interface for Powell's derivative-free optimization solvers}{SIAM Conference on Optimization (OP21), en ligne, 21 Juillet 2021}
+        \end{adcvpresentations}
+    \fi
+
+    \ifextended
+        \section{Enseignement}
+
+        \begin{adcvtabletwo}
+            \adcvrowtwo{\textbf{S{\'{e}}ances d'enseignement tutoriels}, The Hong Kong Polytechnic University, Hong Kong, Chine}{2020--2021}
+            \adcvrowmulti{Calcul, Probabilit{\'{e}}s \& Statistiques, et Alg{\`{e}}bre lin{\'{e}}aire.}
+            \adcvrowtwo{\textbf{Surveillance d'examens}, The Hong Kong Polytechnic University, Hong Kong, Chine}{2019--Pr{\'{e}}sent}
+            \adcvrowmulti{Surveillance d'examens et notations de devoirs pour des sujets vari{\'{e}}s.}
+        \end{adcvtabletwo}
+    \fi
+
+    \section{Langues}
+
+    \ifextended
+        \begin{adcvlanguages}
+            \adcvmothertongue{Fran{\c{c}}ais}
+            \adcvlanguagesheader
+            \adcvlanguage{}{Anglais}{\adcvCTwo}{\adcvCTwo}{\adcvCOne}{\adcvCOne}{\adcvCOne}
+            \adcvlanguage{}{Allemand}{\adcvBOne}{\adcvBOne}{\adcvBOne}{\adcvATwo}{\adcvBOne}
+            \adcvlanguage{}{Cantonais}{\adcvATwo}{\adcvAOne}{\adcvAOne}{\adcvAOne}{\adcvAOne}
+            \adcvlanguagesfooter
+        \end{adcvlanguages}
+    \else
+        \textbf{Fran{\c{c}}ais}: Comp{\'{e}}tence native
+
+        \textbf{Anglais}: Comp{\'{e}}tence professionnelle compl{\`{e}}te
+
+        \textbf{Allemand}: Comp{\'{e}}tence professionnelle limit{\'{e}}e
+
+        \textbf{Cantonais}: Comp{\'{e}}tence {\'{e}}l{\'{e}}mentaire
+    \fi
+
+    \section{Int{\'{e}}r{\^{e}}ts personnels}
+
+    Science, technologie, musique, films, randonn{\'{e}}e, plong{\'{e}}e sous-marine
+
+\end{document}
