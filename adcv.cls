@@ -42,36 +42,48 @@
     \printtrue
 }
 
+\newif\ifde
+\defalse
 \DeclareOption{de}{
     \AtEndOfPackage{
         \InputIfFileExists{adcv_de.def}{}{
             \ClassError{adcv}{German definition file 'adcv_de.def' not found.}
         }
     }
+    \detrue
 }
 
+\newif\ifen
+\enfalse
 \DeclareOption{en}{
-  \AtEndOfPackage{
-    \InputIfFileExists{adcv_en.def}{}{
-      \ClassError{adcv}{English definition file 'adcv_en.def' not found.}
+    \AtEndOfPackage{
+        \InputIfFileExists{adcv_en.def}{}{
+            \ClassError{adcv}{English definition file 'adcv_en.def' not found.}
+        }
     }
-  }
+    \entrue
 }
 
+\newif\iffr
+\frfalse
 \DeclareOption{fr}{
-  \AtEndOfPackage{
-    \InputIfFileExists{adcv_fr.def}{}{
-      \ClassError{adcv}{French definition file 'adcv_fr.def' not found.}
+    \AtEndOfPackage{
+        \InputIfFileExists{adcv_fr.def}{}{
+            \ClassError{adcv}{French definition file 'adcv_fr.def' not found.}
+        }
     }
-  }
+    \frtrue
 }
 
+\newif\ifzh
+\zhfalse
 \DeclareOption{zh}{
-  \AtEndOfPackage{
-    \InputIfFileExists{adcv_zh.def}{}{
-      \ClassError{adcv}{Chinese definition file 'adcv_zh.def' not found.}
+    \AtEndOfPackage{
+        \InputIfFileExists{adcv_zh.def}{}{
+            \ClassError{adcv}{Chinese definition file 'adcv_zh.def' not found.}
+        }
     }
-  }
+    \zhtrue
 }
 
 \DeclareOption*{
@@ -81,6 +93,23 @@
 \ExecuteOptions{en}
 \ProcessOptions
 \LoadClass{article}
+
+% Typographical rules
+
+\ifde
+    \RequirePackage[german]{babel}
+\else
+    \iffr
+        \RequirePackage[french]{babel}
+    \else
+        \ifzh
+            \RequirePackage[UTF8]{ctex}
+            \RequirePackage[chinese,provide=*]{babel}
+        \else
+            \RequirePackage[english]{babel}
+        \fi
+    \fi
+\fi
 
 % Geometry
 
@@ -221,11 +250,11 @@
 \newcommand*{\placeicon}{\textcolor{regulartext}{\faIcon{map-marker-alt}}}
 
 \ifonline
-    \def\adcv@address{\placeicon~\adcv@locality,~\adcv@country}
+    \def\adcv@address{\placeicon~\adcv@locality\ifzh，\else,~\fi\adcv@country}
     \def\adcv@email{\envelopeicon~{\linktext\adcv@emaillocal @\adcv@emaildomainsecond.\adcv@emaildomaintop}}
     \def\adcv@telephone{}
 \else
-    \def\adcv@address{\placeicon~\adcv@street,~\adcv@postalcode~\adcv@locality,~\adcv@country}
+    \def\adcv@address{\placeicon~\adcv@street\ifzh，\else,~\fi\adcv@postalcode~\adcv@locality\ifzh，\else,~\fi\adcv@country}
     \def\adcv@email{\envelopeicon~\href{mailto:\adcv@emaillocal @\adcv@emaildomainsecond.\adcv@emaildomaintop}{\adcv@emaillocal @\adcv@emaildomainsecond.\adcv@emaildomaintop}}
     \def\adcv@telephone{\phoneicon~\adcv@phone}
 \fi
@@ -234,7 +263,7 @@
     \begin{tikzpicture}[remember picture,overlay]%
         \node [rectangle,fill=headerfill,minimum width=\paperwidth,minimum height=8em,anchor=north] (box) at (current page.north) {};%
         \node [text=headertext,anchor=center] (name) at (box) {%
-          {\Huge\thinheader\adcv@firstname~\regularheader\adcv@lastname\thinheader,~\adcv@degree}%
+          {\Huge\thinheader\adcv@firstname~\regularheader\adcv@lastname\thinheader\ifzh，\else,~\fi\adcv@degree}%
         };%
         \node [text=headertext,anchor=north] at (name.south) {%
           \Large\thinheader\adcv@title%
