@@ -1,9 +1,9 @@
 #=======================================================================
 #     latexmkrc
 #
-#     Configuration file for LaTeX compilation using Latexmk.
+#     Configuration file for LaTeX compilation using latexmk.
 #
-#     This is a configuration file for Latexmk v4.51 or later.
+#     This is a configuration file for latexmk v4.51 or later.
 #     Copyright 2022 Tom M. Ragonneau.
 #=======================================================================
 

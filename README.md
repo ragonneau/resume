@@ -13,6 +13,10 @@ Next, clone this repository, and run:
 latexmk -file-line-error -halt-on-error -interaction=nonstopmode
 ```
 
+## Acknowledgements
+
+This project is based on the [adcv](https://github.com/alessandrorossini/adcv) project of Dr. [Alessandro Rossini](https://alessandrorossini.org/).
+
 ## License
 
 Distributed under the LPPL-1.3c License. See `LICENSE` for more information.
