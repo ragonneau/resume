@@ -1,17 +1,17 @@
 \ProvidesFile{adcv_en.def}[Adaptable CV traditional Chinese definitions]
-\def\adcv@basickey{初級}
+\def\adcv@basickey{基礎}
 \def\adcv@cefrkey{歐洲共同語言參考標準（CEFR）}
 \def\adcv@cvofkey{}
-\def\adcv@fluentkey{精通級}
-\def\adcv@independentkey{中級}
-\def\adcv@interactionkey{Interaction}
-\def\adcv@listeningkey{Listening}
-\def\adcv@mothertonguekey{Mother tongue}
-\def\adcv@otherkey{Other languages}
+\def\adcv@fluentkey{流利}
+\def\adcv@independentkey{進階}
+\def\adcv@interactionkey{對話}
+\def\adcv@listeningkey{聆聽}
+\def\adcv@mothertonguekey{母語}
+\def\adcv@otherkey{其他語言}
 \def\adcv@pagekey{頁}
-\def\adcv@productionkey{Production}
-\def\adcv@readingkey{Reading}
+\def\adcv@productionkey{表達}
+\def\adcv@readingkey{閱讀}
 \def\adcv@resumeofkey{}
-\def\adcv@speakingkey{Speaking}
-\def\adcv@understandingkey{Understanding}
-\def\adcv@writingkey{Writing}
+\def\adcv@speakingkey{說話能力}
+\def\adcv@understandingkey{理解能力}
+\def\adcv@writingkey{書寫能力}

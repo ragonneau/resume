@@ -268,9 +268,14 @@
 \fi
 
 \def\@sectioncolor#1#2#3{{\addfontfeature{Color=linktext} #1#2#3}}
-\def\HyColor@@@@UseColor#1\@nil{\addfontfeatures{Color=linktext}}
 
-\renewcommand{\section}[1]{\vspace{.5\baselineskip}{\Large\bfseries\@sectioncolor #1}}
+\ifzhhant
+    \def\HyColor@@@@UseColor#1\@nil{\addfontfeatures{Color=linktext}\addCJKfontfeatures{Color=linktext}}
+    \renewcommand{\section}[1]{\vspace{.5\baselineskip}{\addfontfeature{Color=linktext}\addCJKfontfeature{Color=linktext}\Large\bfseries{#1}}}
+\else
+    \def\HyColor@@@@UseColor#1\@nil{\addfontfeatures{Color=linktext}}
+    \renewcommand{\section}[1]{\vspace{.5\baselineskip}{\Large\bfseries\@sectioncolor #1}}
+\fi
 \renewcommand{\subsection}[2]{\large\bfseries #2}
 
 % Header
@@ -350,7 +355,7 @@
 \AtBeginDocument{%
     \pagestyle{fancy}%
     \fancyhead{}%
-    \fancyfoot[C]{\footnotesize\light\adcv@firstname~\adcv@lastname\ifextended\adcv@cvofkey\else\adcv@resumeofkey\fi~(\adcv@date)\ifonline\else\quad\adcv@telephone\fi\quad\adcv@email}%
+    \fancyfoot[C]{\footnotesize\light\adcv@firstname~\adcv@lastname\ifextended\adcv@cvofkey\else\adcv@resumeofkey\fi\ifzhhant（\else~(\fi\adcv@date\ifzhhant）\else)\fi\ifonline\else\quad\adcv@telephone\fi\quad\adcv@email}%
     \fancyfoot[R]{\raggedleft\footnotesize\light\adcv@page}%
     \renewcommand{\headrulewidth}{0em}%
     \setlength\footskip{\baselineskip}%
