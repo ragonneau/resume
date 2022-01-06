@@ -28,9 +28,12 @@ jobs:
           root_file: |
             cv_en.tex
             cv_fr.tex
+            cv_zh-hant.tex
           args: -file-line-error -halt-on-error -interaction=nonstopmode
-          extra_fonts: "./fonts/*.ttf"
-          pre_compile: "tlmgr update --self && tlmgr update --all"
+          extra_fonts: |
+            ./fonts/NotoSerifTC/*.otf
+            ./fonts/Roboto/*.ttf
+          pre_compile: tlmgr update --self && tlmgr update --all
           latexmk_shell_escape: true
 
       - name: Rename PDF documents

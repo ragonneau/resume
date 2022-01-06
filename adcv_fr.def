@@ -1,4 +1,4 @@
-\ProvidesFile{adcv_en.def}[Adaptable CV English definitions]
+\ProvidesFile{adcv_en.def}[Adaptable CV French definitions]
 \def\adcv@basickey{{\'{E}}l{\'{e}}mentaire}
 \def\adcv@cefrkey{Cadre europ{\'{e}}en commun de r{\'{e}}f{\'{e}}rence pour les langues -- Apprendre, Enseigner, {\'{E}}valuer (CEFR)}
 \def\adcv@cvofkey{}

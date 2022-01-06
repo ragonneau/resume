@@ -75,15 +75,15 @@
     \frtrue
 }
 
-\newif\ifzh
-\zhfalse
-\DeclareOption{zh}{
+\newif\ifzhhant
+\zhhantfalse
+\DeclareOption{zh-hant}{
     \AtEndOfPackage{
-        \InputIfFileExists{adcv_zh.def}{}{
-            \ClassError{adcv}{Chinese definition file 'adcv_zh.def' not found.}
+        \InputIfFileExists{adcv_zh-hant.def}{}{
+            \ClassError{adcv}{Traditional chinese definition file 'adcv_zh-hant.def' not found.}
         }
     }
-    \zhtrue
+    \zhhanttrue
 }
 
 \DeclareOption*{
@@ -102,11 +102,9 @@
     \iffr
         \RequirePackage[french]{babel}
     \else
-        \ifzh
-            \RequirePackage[UTF8]{ctex}
-            \RequirePackage[chinese,provide=*]{babel}
-        \else
-            \RequirePackage[english]{babel}
+        \RequirePackage[english]{babel}
+        \ifzhhant
+            \RequirePackage{xeCJK}
         \fi
     \fi
 \fi
@@ -123,8 +121,8 @@
 \newlength\adcv@centerrightcol
 \newlength\adcv@langcol
 
-\setlength{\adcv@leftcol}{11em}
-\setlength{\adcv@rightcol}{9em}
+\setlength{\adcv@leftcol}{10em}
+\setlength{\adcv@rightcol}{10em}
 \setlength{\adcv@colsep}{1em}
 \setlength{\adcv@centercol}{\textwidth}
 \addtolength{\adcv@centercol}{-\adcv@leftcol}
@@ -195,36 +193,79 @@
 \RequirePackage{fontspec}
 
 \setmainfont[
-    Path=fonts/,
+    Path=fonts/Roboto/,
     BoldFont=Roboto-Bold.ttf,
     ItalicFont=Roboto-Italic.ttf,
     BoldItalicFont=Roboto-BoldItalic.ttf,
     Color=regulartext,
 ]{Roboto-Light.ttf}
-
-\newfontfamily\regular[
-    Path=fonts/,
+\newfontfamily\la@regular[
+    Path=fonts/Roboto/,
     Color=regulartext,
 ]{Roboto-Regular.ttf}
-\newfontfamily\light[
-    Path=fonts/,
+\newfontfamily\la@light[
+    Path=fonts/Roboto/,
     Color=regulartext,
 ]{Roboto-Light.ttf}
-\newfontfamily\thin[
-    Path=fonts/,
+\newfontfamily\la@thin[
+    Path=fonts/Roboto/,
     Color=regulartext,
 ]{Roboto-Thin.ttf}
-\newfontfamily\regularheader[
-    Path=fonts/,
+\newfontfamily\la@regularheader[
+    Path=fonts/Roboto/,
     Color=headertext,
 ]{Roboto-Regular.ttf}
-\newfontfamily\thinheader[
-    Path=fonts/,
+\newfontfamily\la@thinheader[
+    Path=fonts/Roboto/,
     Color=headertext,
 ]{Roboto-Thin.ttf}
 
-\newcommand*{\lighttext}{\addfontfeature{Color=lighttext}}
-\newcommand*{\linktext}{\addfontfeature{Color=linktext}}
+\ifzhhant
+    \setCJKmainfont[
+        Path=fonts/NotoSerifTC/,
+        BoldFont=NotoSerifTC-Bold.otf,
+        Color=regulartext,
+    ]{NotoSerifTC-Light.otf}
+    \newCJKfontfamily\zhhant@regular[
+        Path=fonts/NotoSerifTC/,
+        Color=regulartext,
+    ]{NotoSerifTC-Regular.otf}
+    \newCJKfontfamily\zhhant@light[
+        Path=fonts/NotoSerifTC/,
+        Color=regulartext,
+    ]{NotoSerifTC-Light.otf}
+    \newCJKfontfamily\zhhant@thin[
+        Path=fonts/NotoSerifTC/,
+        Color=regulartext,
+    ]{NotoSerifTC-Light.otf}
+    \newCJKfontfamily\zhhant@regularheader[
+        Path=fonts/NotoSerifTC/,
+        Color=headertext,
+    ]{NotoSerifTC-Regular.otf}
+    \newCJKfontfamily\zhhant@thinheader[
+        Path=fonts/NotoSerifTC/,
+        Color=headertext,
+    ]{NotoSerifTC-Light.otf}
+    \def\regular{\la@regular\zhhant@regular}
+    \def\light{\la@light\zhhant@light}
+    \def\thin{\la@thin\zhhant@thin}
+    \def\regularheader{\la@regularheader\zhhant@regularheader}
+    \def\thinheader{\la@thinheader\zhhant@thinheader}
+\else
+    \let\regular\la@regular
+    \let\light\la@light
+    \let\thin\la@thin
+    \let\regularheader\la@regularheader
+    \let\thinheader\la@thinheader
+\fi
+
+\ifzhhant
+    \newcommand*{\lighttext}{\addfontfeature{Color=lighttext}\addCJKfontfeature{Color=lighttext}}
+    \newcommand*{\linktext}{\addfontfeature{Color=linktext}\addCJKfontfeature{Color=linktext}}
+\else
+    \newcommand*{\lighttext}{\addfontfeature{Color=lighttext}}
+    \newcommand*{\linktext}{\addfontfeature{Color=linktext}}
+\fi
 
 \def\@sectioncolor#1#2#3{{\addfontfeature{Color=linktext} #1#2#3}}
 \def\HyColor@@@@UseColor#1\@nil{\addfontfeatures{Color=linktext}}
@@ -250,11 +291,11 @@
 \newcommand*{\placeicon}{\textcolor{regulartext}{\faIcon{map-marker-alt}}}
 
 \ifonline
-    \def\adcv@address{\placeicon~\adcv@locality\ifzh，\else,~\fi\adcv@country}
+    \def\adcv@address{\placeicon~\adcv@locality\ifzhhant，\else,~\fi\adcv@country}
     \def\adcv@email{\envelopeicon~{\linktext\adcv@emaillocal @\adcv@emaildomainsecond.\adcv@emaildomaintop}}
     \def\adcv@telephone{}
 \else
-    \def\adcv@address{\placeicon~\adcv@street\ifzh，\else,~\fi\adcv@postalcode~\adcv@locality\ifzh，\else,~\fi\adcv@country}
+    \def\adcv@address{\placeicon~\adcv@street\ifzhhant，\else,~\fi\adcv@postalcode~\adcv@locality\ifzhhant，\else,~\fi\adcv@country}
     \def\adcv@email{\envelopeicon~\href{mailto:\adcv@emaillocal @\adcv@emaildomainsecond.\adcv@emaildomaintop}{\adcv@emaillocal @\adcv@emaildomainsecond.\adcv@emaildomaintop}}
     \def\adcv@telephone{\phoneicon~\adcv@phone}
 \fi
@@ -263,7 +304,7 @@
     \begin{tikzpicture}[remember picture,overlay]%
         \node [rectangle,fill=headerfill,minimum width=\paperwidth,minimum height=8em,anchor=north] (box) at (current page.north) {};%
         \node [text=headertext,anchor=center] (name) at (box) {%
-          {\Huge\thinheader\adcv@firstname~\regularheader\adcv@lastname\thinheader\ifzh，\else,~\fi\adcv@degree}%
+          {\Huge\thinheader\adcv@firstname~\regularheader\adcv@lastname\thinheader\ifzhhant，\else,~\fi\adcv@degree}%
         };%
         \node [text=headertext,anchor=north] at (name.south) {%
           \Large\thinheader\adcv@title%
