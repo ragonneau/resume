@@ -12,6 +12,6 @@
 \def\adcv@productionkey{表達}
 \def\adcv@readingkey{閱讀}
 \def\adcv@resumeofkey{}
-\def\adcv@speakingkey{說話能力}
+\def\adcv@speakingkey{口頭表達能力}
 \def\adcv@understandingkey{理解能力}
 \def\adcv@writingkey{書寫能力}

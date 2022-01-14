@@ -1,4 +1,4 @@
-## latexmkrc
+## Makefile
 ## Copyright 2022 Tom M. Ragonneau
 #
 # This work may be distributed and/or modified under the
@@ -12,14 +12,15 @@
 # This work has the LPPL maintenance status `maintained'.
 #
 # The Current Maintainer of this work is Tom M. Ragonneau.
+LC := latexmk
+LCFLAGS := -Werror -file-line-error -halt-on-error -interaction=nonstopmode
 
-# Generate pdf using xelatex v4.51 or later.
-$pdf_mode = 5;
-$postscript_mode = 0;
-$dvi_mode = 0;
+all: $(basename $(wildcard cv_*.tex))
 
-# Configure xelatex engine
-push @generated_exts, "xdv";
+%: %.tex
+	$(LC) $(LCFLAGS) $^
 
-# Remove extra extensions on clean
-$clean_ext = "bbl run.xml";
+.PHONY: clean
+clean:
+	$(LC) -c
+	@find . -name *.aux -type f -exec rm -rf "{}" ";"
