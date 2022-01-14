@@ -2,7 +2,7 @@
 
 [![Build](https://github.com/ragonneau/resume/actions/workflows/build.yml/badge.svg)](https://github.com/ragonneau/resume/actions/workflows/build.yml)
 
-LaTeX source files of the CVs of Tom M. Ragonneau.
+LaTeX source files of the resumes of Tom M. Ragonneau.
 
 ## Getting Started
 

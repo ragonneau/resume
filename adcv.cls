@@ -378,28 +378,28 @@
 
 % Languages
 
-\newenvironment*{adcvlanguages}{\begin{longtable}[l]{@{}>{\raggedleft}p{\adcv@leftcol}@{\hspace{\adcv@colsep}} @{}p{\adcv@centerrightcol}@{}}}{\end{longtable}}
+\newenvironment*{adcvlanguages}{\begin{longtable}{@{}>{\raggedleft}p{\adcv@leftcol}@{\hspace{\adcv@colsep}} @{}p{\adcv@centerrightcol}@{}}}{\end{longtable}}
 
 \newcommand*{\adcvmothertongue}[1]{{\adcv@mothertonguekey} & {\bfseries #1}\tabularnewline[0em]}
 
 \newcommand*{\adcvlanguagesheader}{%
     \adcv@otherkey &%
     \setlength\extrarowheight{0em}%
-    \begin{tabular}[t]{|m{\adcv@langcol}|m{\adcv@langcol}|m{\adcv@langcol}|m{\adcv@langcol}|m{\adcv@langcol}|}%
+    \begin{tabular}[t]{|>{\centering}m{\adcv@langcol}|>{\centering}m{\adcv@langcol}|>{\centering}m{\adcv@langcol}|>{\centering}m{\adcv@langcol}|>{\centering}m{\adcv@langcol}|}%
         \firsthline%
         \multicolumn{2}{|c|}{{\bfseries\adcv@understandingkey}} & \multicolumn{2}{c|}{{\bfseries\adcv@speakingkey}} & \centering{\bfseries\adcv@writingkey}\tabularnewline%
         \cline{1-4}%
-        \centering\small{\adcv@listeningkey} & \centering\small{\adcv@readingkey} & \centering\small{\adcv@interactionkey} & \centering\small{\adcv@productionkey} & \tabularnewline%
+        \small{\adcv@listeningkey} & \small{\adcv@readingkey} & \small{\adcv@interactionkey} & \small{\adcv@productionkey} & \tabularnewline%
         \hline%
     \end{tabular}\tabularnewline[-\arrayrulewidth]%
 }
 
-\newcommand*{\adcvlanguage}[7]{%
-    \bfseries #2$^{\mbox{\scriptsize#1}}$ &%
+\newcommand*{\adcvlanguage}[6]{%
+    \bfseries #1 &%
     \setlength\extrarowheight{0em}%
     \begin{tabular}{|m{\adcv@langcol}|m{\adcv@langcol}|m{\adcv@langcol}|m{\adcv@langcol}|m{\adcv@langcol}|}%
         \hline%
-        #3 & #4 & #5 & #6 & #7\tabularnewline%
+        #2 & #3 & #4 & #5 & #6\tabularnewline%
         \hline%
     \end{tabular}\tabularnewline[-\arrayrulewidth]%
 }
