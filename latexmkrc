@@ -21,5 +21,8 @@ $dvi_mode = 0;
 # Configure xelatex engine
 push @generated_exts, "xdv";
 
+# Run bibtex or biber as needed to regenerate the bbl files
+$bibtex_use = 2;
+
 # Remove extra extensions on clean
-$clean_ext = "bbl run.xml";
+$clean_ext = "run.xml";
